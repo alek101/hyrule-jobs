@@ -35,6 +35,9 @@ export default defineComponent({
 
     const handleClick =(term: OrderTerm) => {
       order.value = term
+      jobs.value.sort((a: Job, b: Job)=>{
+          return a[order.value] > b[order.value] ? 1 : -1;
+      })
     }
 
     return {jobs, handleClick, order}
