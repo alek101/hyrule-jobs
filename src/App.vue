@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, toRefs } from 'vue';
+import { defineComponent, reactive, ref, toRefs } from 'vue';
 
 
 export default defineComponent({
@@ -15,12 +15,24 @@ export default defineComponent({
   components: {},
   setup() {
 
-    const state = reactive({
-      name: 'Link',
-      age: 25 as number | string
-    })
+    // const state = reactive({
+    //   name: 'Link',
+    //   age: 25 as number | string
+    // })
 
-    return { ...toRefs(state)}
+    // state.name = 'Alek'
+
+    // return { ...toRefs(state)}
+
+    const name = ref('Link')
+
+    name.value = 'Alek'
+
+    const age = ref <number | string>(25)
+
+    age.value = 29
+
+    return {name, age}
   },
   methods: {
     changeName(name: string) {
